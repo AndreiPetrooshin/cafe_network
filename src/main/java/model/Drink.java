@@ -1,6 +1,6 @@
 package model;
 
-public class Beverage {
+public class Drink {
     private int id;
     private String name;
     private int price;    //цена

@@ -2,12 +2,12 @@ package model;
 
 import java.util.List;
 
-public class CoffeeHouse {
+public class Cafe {
     private int id;
     private String address;
     private String name;
     private Director director;
-    private List<Beverage> beverageList;
+    private List<Drink> drinks;
 
     public int getId() {
         return id;
@@ -41,11 +41,11 @@ public class CoffeeHouse {
         this.director = director;
     }
 
-    public List<Beverage> getBeverageList() {
-        return beverageList;
+    public List<Drink> getDrinks() {
+        return drinks;
     }
 
-    public void setBeverageList(List<Beverage> beverageList) {
-        this.beverageList = beverageList;
+    public void setDrinks(List<Drink> drinks) {
+        this.drinks = drinks;
     }
 }
