@@ -120,6 +120,6 @@ public class Director {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'';
+                ", phoneNumber='" + phoneNumber + '\'' + '}';
     }
 }

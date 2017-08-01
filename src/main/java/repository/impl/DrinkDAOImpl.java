@@ -51,7 +51,7 @@ public class DrinkDAOImpl implements DrinkDAO {
         EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
-            entityManager.createQuery("delete FROM Drink WHERE id=" + id);
+            entityManager.createQuery("delete FROM Drink WHERE id=" + id).executeUpdate();
             entityManager.getTransaction().commit();
             return true;
         }
