@@ -1,15 +1,24 @@
 package repository;
 
+
+
 import model.Director;
 
 import java.util.List;
 
-public interface DirectorDao {
-    boolean create(Director director);
+/**
+ * Created by draqo on 29.07.2017.
+ */
+public interface DirectorDAO {
 
-    Director update(Director director);
+    boolean addDirectror(Director director);
 
     boolean remove(int id);
 
-    List<Director> getAll();
+    Director get(int id);
+
+    List getAll();
+
+    boolean update(Director director);
+
 }

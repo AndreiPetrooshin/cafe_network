@@ -1,12 +1,28 @@
 package repository;
 
+
+
 import model.Drink;
 
 import java.util.List;
 
-public interface DrinkDao {
-    boolean create(Drink drink);
-    Drink update(Drink drink);
+/**
+ * Created by draqo on 29.07.2017.
+ */
+public interface DrinkDAO {
+
+    Drink getDrink(int id);
+
+    List getAll();
+
     boolean remove(int id);
-    List<Drink> getAll();
+
+    boolean update(Drink drink);
+
+    boolean addDrink(Drink drink);
+
+
+
+
+
 }

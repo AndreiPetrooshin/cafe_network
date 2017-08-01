@@ -1,15 +1,26 @@
 package repository;
 
+
+
 import model.Cafe;
 
 import java.util.List;
 
-public interface CafeDao {
-    boolean create(Cafe cafe);
+/**
+ * Created by draqo on 29.07.2017.
+ */
+public interface  CafeDAO {
+
+    Cafe getCafe(int id);
+
+    List getAll();
 
     boolean remove(int id);
 
-    Cafe update(Cafe cafe);
+    boolean addCafe(Cafe cafe);
 
-    List<Cafe> getAll();
+    boolean updateCafe(Cafe cafe);
+
+
+
 }

@@ -1,11 +1,42 @@
 package model;
 
+import javax.persistence.*;
+
+
+@Entity
 public class Drink {
+
     private int id;
     private String name;
-    private int price;    //цена
-    private int capacity; //объем
+    private Double price;
+    private Integer capacity;
+    private Cafe cafe;
 
+    public Drink(String name, Double price, Integer capacity, Cafe cafe) {
+        this.name = name;
+        this.price = price;
+        this.capacity = capacity;
+        this.cafe = cafe;
+    }
+
+    public Drink() {
+    }
+
+    @ManyToOne()
+    @JoinColumn(name = "cafe_id", nullable = false)
+    public Cafe getCafe() {
+        return cafe;
+    }
+
+    public void setCafe(Cafe cafe) {
+        this.cafe = cafe;
+    }
+
+
+
+    @Id
+    @Column(name = "id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -14,6 +45,8 @@ public class Drink {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -22,19 +55,60 @@ public class Drink {
         this.name = name;
     }
 
-    public int getPrice() {
+    @Basic
+    @Column(name = "price")
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getCapacity() {
+    @Basic
+    @Column(name = "capacity")
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Drink drink = (Drink) o;
+
+        if (id != drink.id) return false;
+        if (cafe != drink.cafe) return false;
+        if (name != null ? !name.equals(drink.name) : drink.name != null) return false;
+        if (price != null ? !price.equals(drink.price) : drink.price != null) return false;
+        if (capacity != null ? !capacity.equals(drink.capacity) : drink.capacity != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (capacity != null ? capacity.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", capacity=" + capacity +
+                ", cafe=" + cafe +
+                '}';
     }
 }
