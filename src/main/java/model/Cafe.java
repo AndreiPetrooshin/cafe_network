@@ -45,7 +45,7 @@ public class Cafe {
     }
 
     @Id
-    @Column(name = "id", unique = true, nullable = false)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;

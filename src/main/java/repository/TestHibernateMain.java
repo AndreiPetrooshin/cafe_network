@@ -19,7 +19,7 @@ public class TestHibernateMain {
 //        cafeDAO.addCafe(cafe);
         Drink drink = new Drink("kopuchino", 19.99, 350, cafeDAO.getCafe(1));
         System.out.println(drink);
-//        drinkDAO.addDrink(drink);
+        drinkDAO.addDrink(drink);
 
 
 

@@ -3,15 +3,13 @@ package repository.impl;
 
 import model.Director;
 import repository.DirectorDAO;
-import repository.EntityUtil;
+import repository.util.EntityUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
-/**
- * Created by draqo on 29.07.2017.
- */
+
 public class DirectorDAOImpl implements DirectorDAO {
 
     private static EntityManagerFactory managerFactory = EntityUtil.getInstance();

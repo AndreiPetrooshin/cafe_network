@@ -1,15 +1,12 @@
 package repository.impl;
 
-
-
 import model.Cafe;
 import repository.CafeDAO;
-import repository.EntityUtil;
+import repository.util.EntityUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
-
 
 
 public class CafeDAOImpl implements CafeDAO {

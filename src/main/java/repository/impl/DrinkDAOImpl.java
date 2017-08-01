@@ -4,15 +4,13 @@ package repository.impl;
 
 import model.Drink;
 import repository.DrinkDAO;
-import repository.EntityUtil;
+import repository.util.EntityUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
-/**
- * Created by draqo on 30.07.2017.
- */
+
 public class DrinkDAOImpl implements DrinkDAO {
 
     private static EntityManagerFactory managerFactory = EntityUtil.getInstance();
