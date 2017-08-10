@@ -17,7 +17,7 @@ public interface DirectorDAO {
 
     Director get(int id);
 
-    List getAll();
+    List<Director> getAll();
 
     boolean update(Director director);
 

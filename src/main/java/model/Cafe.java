@@ -55,7 +55,6 @@ public class Cafe {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "address")
     public String getAddress() {
         return address;
@@ -65,7 +64,6 @@ public class Cafe {
         this.address = address;
     }
 
-    @Basic
     @Column(name = "name")
     public String getName() {
         return name;
@@ -75,9 +73,6 @@ public class Cafe {
         this.name = name;
     }
 
-
-
-    @Basic
     @Column(name = "rating")
     public Double getRating() {
         return rating;

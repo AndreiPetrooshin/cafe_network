@@ -13,7 +13,7 @@ public interface DrinkDAO {
 
     Drink getDrink(int id);
 
-    List getAll();
+    List<Drink> getAll();
 
     boolean remove(int id);
 

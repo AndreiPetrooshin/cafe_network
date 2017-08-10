@@ -45,7 +45,6 @@ public class Drink {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "name")
     public String getName() {
         return name;
@@ -55,7 +54,6 @@ public class Drink {
         this.name = name;
     }
 
-    @Basic
     @Column(name = "price")
     public Double getPrice() {
         return price;
@@ -65,7 +63,6 @@ public class Drink {
         this.price = price;
     }
 
-    @Basic
     @Column(name = "capacity")
     public Integer getCapacity() {
         return capacity;

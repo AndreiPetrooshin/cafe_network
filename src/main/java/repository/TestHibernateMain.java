@@ -1,6 +1,7 @@
 package repository;
 
 
+import model.Cafe;
 import model.Drink;
 import repository.impl.DrinkDAOImpl;
 
@@ -13,7 +14,6 @@ public class TestHibernateMain {
 
         DrinkDAO drink = new DrinkDAOImpl();
 
-        drink.remove(4);
 
 
     }

@@ -13,7 +13,7 @@ public interface  CafeDAO {
 
     Cafe getCafe(int id);
 
-    List getAll();
+    List<Cafe> getAll();
 
     boolean remove(int id);
 

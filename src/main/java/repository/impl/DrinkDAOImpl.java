@@ -1,17 +1,16 @@
 package repository.impl;
 
 
-
 import model.Drink;
 import repository.DrinkDAO;
 import repository.util.EntityUtil;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 
 public class DrinkDAOImpl implements DrinkDAO {
+
 
     private static EntityManagerFactory managerFactory = EntityUtil.getInstance();
 
@@ -31,14 +30,14 @@ public class DrinkDAOImpl implements DrinkDAO {
         }
     }
 
-    public List getAll() {
+    public List<Drink> getAll() {
         EntityManager entityManager = getEntityManager();
         try{
-            return entityManager.createQuery("FROM Drink").getResultList();
+            return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("SOMETHING GO WRONG AT GET ALL METHOD");
+            System.err.println("SOMETHING GO WRONG AT GET ALL METHOD");
             return null;
         }
         finally {
@@ -57,7 +56,7 @@ public class DrinkDAOImpl implements DrinkDAO {
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("SOMETHING GO WRONG AT REMOVE METHOD");
+            System.err.println("SOMETHING GO WRONG AT REMOVE METHOD");
             return false;
         }
         finally {
@@ -70,17 +69,13 @@ public class DrinkDAOImpl implements DrinkDAO {
         EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
-            Drink drinkFromDB = entityManager.find(Drink.class, drink.getId());
-            drinkFromDB.setName(drink.getName());
-            drinkFromDB.setCafe(drink.getCafe());
-            drinkFromDB.setCapacity(drink.getCapacity());
-            drinkFromDB.setPrice(drink.getPrice());
+            entityManager.merge(drink);
             entityManager.getTransaction().commit();
             return true;
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("SOMETHING GO WRONG AT UPDATE METHOD");
+            System.err.println("SOMETHING GO WRONG AT UPDATE METHOD");
             return false;
         }
         finally {
@@ -99,7 +94,7 @@ public class DrinkDAOImpl implements DrinkDAO {
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("SOMETHING GO WRONG AT ADD METHOD");
+            System.err.println("SOMETHING GO WRONG AT ADD METHOD");
             return false;
         }
         finally {

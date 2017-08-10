@@ -3,7 +3,6 @@ package repository.impl;
 import model.Cafe;
 import repository.CafeDAO;
 import repository.util.EntityUtil;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.List;
 public class CafeDAOImpl implements CafeDAO {
 
     private static EntityManagerFactory managerFactory = EntityUtil.getInstance();
+
 
 
 
@@ -29,10 +29,10 @@ public class CafeDAOImpl implements CafeDAO {
        }
     }
 
-    public List getAll() {
+    public List<Cafe> getAll() {
         EntityManager entityManager = getEntityManager();
         try{
-           return entityManager.createQuery("FROM Cafe ").getResultList();
+           return entityManager.createQuery("FROM Cafe", Cafe.class).getResultList();
         }
         catch (Exception e){
             System.err.println("SOMETHING GO WRONG");
@@ -84,12 +84,7 @@ public class CafeDAOImpl implements CafeDAO {
         EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
-            Cafe cafeFromBd = entityManager.find(Cafe.class, cafe.getId());
-            cafeFromBd.setName(cafe.getName());
-            cafeFromBd.setAddress(cafe.getAddress());
-            cafeFromBd.setDirector(cafe.getDirector());
-            cafeFromBd.setDrinkList(cafe.getDrinkList());
-            cafeFromBd.setRating(cafe.getRating());
+            entityManager.merge(cafe);
             entityManager.getTransaction().commit();
             return true;
         }

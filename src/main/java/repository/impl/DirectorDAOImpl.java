@@ -7,6 +7,7 @@ import repository.util.EntityUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+
 import java.util.List;
 
 
@@ -69,14 +70,10 @@ public class DirectorDAOImpl implements DirectorDAO {
         }
     }
 
-    public List getAll() {
+    public List<Director> getAll() {
         EntityManager entityManager = getEntityManager();
         try{
-            List directors = entityManager.createQuery("FROM Director").getResultList();
-            if(directors!=null){
-                return directors;
-            }
-            return null;
+            return entityManager.createQuery("FROM Director", Director.class).getResultList();
         }
         catch (Exception e){
             System.err.println("SOMETHING GO WRONG");
@@ -90,12 +87,8 @@ public class DirectorDAOImpl implements DirectorDAO {
     public boolean update(Director director) {
         EntityManager entityManager = getEntityManager();
         try{
-           Director dir = entityManager.find(Director.class, director.getId());
            entityManager.getTransaction().begin();
-           dir.setFirstName(director.getFirstName());
-           dir.setLastName(director.getLastName());
-           dir.setEmail(dir.getEmail());
-           dir.setPhoneNumber(dir.getPhoneNumber());
+           entityManager.merge(director);
            entityManager.getTransaction().commit();
            return true;
         }

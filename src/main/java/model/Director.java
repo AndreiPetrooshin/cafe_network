@@ -46,7 +46,6 @@ public class Director {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
@@ -56,7 +55,6 @@ public class Director {
         this.firstName = firstName;
     }
 
-    @Basic
     @Column(name = "last_name")
     public String getLastName() {
         return lastName;
@@ -66,7 +64,6 @@ public class Director {
         this.lastName = lastName;
     }
 
-    @Basic
     @Column(name = "email")
     public String getEmail() {
         return email;
@@ -76,7 +73,6 @@ public class Director {
         this.email = email;
     }
 
-    @Basic
     @Column(name = "phone_number")
     public String getPhoneNumber() {
         return phoneNumber;
