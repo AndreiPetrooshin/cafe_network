@@ -1,8 +1,6 @@
 package repository;
 
 
-import model.Cafe;
-import model.Drink;
 import repository.impl.DrinkDAOImpl;
 
 /**
