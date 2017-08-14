@@ -20,7 +20,7 @@ import java.util.List;
  * Created by draqo on 10.08.2017.
  */
 
-@WebServlet("/")
+@WebServlet("/servlet")
 public class ServletCafe extends HttpServlet {
 
     @Override
@@ -35,7 +35,7 @@ public class ServletCafe extends HttpServlet {
         CafeDAO cafeDAO = new CafeDAOImpl();
         List<Cafe> cafes = cafeDAO.getAll();
         req.setAttribute("cafes", cafes);
-        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+        req.getRequestDispatcher("/cafes.jsp").forward(req,resp);
 
     }
 }
