@@ -25,8 +25,8 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="index.html"><span class="glyphicon glyphicon-home" ></span> Главная</a></li>
-          <li><a href="/servlet"><span class="glyphicon glyphicon-align-justify" ></span> Заведения</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-share-alt" ></span>   Кофе  </a></li>
+          <li><a href="servlet?value=cafeList"><span class="glyphicon glyphicon-align-justify" ></span> Заведения</a></li>
+          <li><a href="servlet?value=drinkList"><span class="glyphicon glyphicon-share-alt" ></span>   Кофе  </a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -50,27 +50,23 @@
   </div>
 
     <div class="container">
-      <h2>Cafes Table</h2>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Director</th>
-          <th>Rating</th>
-        </tr>
-        </thead>
-        <tbody>
-          <c:forEach var="cafe" items="${cafes}" >
-            <tr>
-              <td>${cafe.name}</td>
-              <td>${cafe.address}</td>
-              <td>${cafe.director.firstName} ${cafe.director.lastName}</td>
-              <td>${cafe.rating}</td>
-            </tr>
+
+          <c:forEach var="cafe" items="${cafeList}" >
+            <div class="row">
+              <div class="col-md-2" >
+                <img src="images/loading.png" width="80" height="80">
+              </div>
+              <div class="col-md-8">
+                <p>Кафе: ${cafe.name}, находится по адресу ${cafe.address}.<br><br>
+                Директор: ${cafe.director.firstName} ${cafe.director.lastName}.
+                </p>
+              </div>
+              <div class="col-md-2">
+                <h2>${cafe.rating}</h2>
+              </div>
+            </div>
+          <br><hr><br>
           </c:forEach>
-        </tbody>
-      </table>
     </div>
 
   </body>
