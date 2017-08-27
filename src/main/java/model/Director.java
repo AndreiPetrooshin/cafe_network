@@ -21,7 +21,6 @@ public class Director {
         this.phoneNumber = phoneNumber;
     }
 
-
     public Director() {
     }
 

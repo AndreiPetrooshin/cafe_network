@@ -1,10 +1,16 @@
-package service;
+package service.servlets;
 
 
 import model.Cafe;
 import model.Drink;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import repository.CafeDAO;
 import repository.impl.DrinkDAOImpl;
+import service.CafeService;
+import service.DirectorService;
+import service.DrinkService;
 import service.impl.CafeServiceImpl;
 import service.impl.DirectorServiceImpl;
 import service.impl.DrinkServiceImpl;
@@ -26,16 +32,21 @@ import java.util.List;
 @WebServlet("/servlet")
 public class ServletCafe extends HttpServlet {
 
-    @Autowired
     private DrinkService drinkService;
-
-    @Autowired
     private DirectorService directorService;
-
-    @Autowired
     private CafeService cafeService;
+    private ClassPathXmlApplicationContext context;
 
 
+    @Override
+    public void init() throws ServletException {
+        context = new ClassPathXmlApplicationContext
+                ("classpath:spring/spring-config.xml",
+                "classpath:spring/spring-db.xml");
+        drinkService = context.getBean(DrinkServiceImpl.class);
+        directorService = context.getBean(DirectorServiceImpl.class);
+        cafeService = context.getBean(CafeServiceImpl.class);
+}
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

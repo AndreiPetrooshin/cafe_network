@@ -25,10 +25,7 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public List<Drink> getAll() {
-        System.out.println(dao);
-        return dao.getAll();
-    }
+    public List<Drink> getAll() {return dao.getAll();}
 
     @Override
     public boolean remove(int id) {

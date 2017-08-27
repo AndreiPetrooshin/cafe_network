@@ -23,74 +23,28 @@ public class DrinkDAOImpl implements DrinkDAO {
     }
 
     public Drink get(int id) {
-        try{
            return entityManager.find(Drink.class, id);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.out.println("SOMETHING GO WRONG AT GET METHOD");
-            return null;
-        }
-        finally {
-            entityManager.close();
-        }
     }
 
     public List<Drink> getAll() {
             return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
     }
 
+    @Transactional
     public boolean remove(int id) {
-        try{
-            entityManager.getTransaction().begin();
             entityManager.createQuery("delete FROM Drink WHERE id=" + id).executeUpdate();
-            entityManager.getTransaction().commit();
             return true;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.err.println("SOMETHING GO WRONG AT REMOVE METHOD");
-            return false;
-        }
-        finally {
-            entityManager.close();
-        }
-
     }
 
+    @Transactional
     public boolean update(Drink drink) {
-        try{
-            entityManager.getTransaction().begin();
             entityManager.merge(drink);
-            entityManager.getTransaction().commit();
             return true;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.err.println("SOMETHING GO WRONG AT UPDATE METHOD");
-            return false;
-        }
-        finally {
-            entityManager.close();
-        }
-
     }
 
+    @Transactional
     public boolean addDrink(Drink drink) {
-        try{
-            entityManager.getTransaction().begin();
-            entityManager.persist(drink);
-            entityManager.getTransaction().commit();
-            return true;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.err.println("SOMETHING GO WRONG AT ADD METHOD");
-            return false;
-        }
-        finally {
-            entityManager.close();
-        }
-
+        entityManager.persist(drink);
+        return true;
     }
 }

@@ -21,83 +21,29 @@ public class DirectorDAOImpl implements DirectorDAO {
         this.entityManager = entityManager;
     }
 
+    @Transactional
     public boolean addDirector(Director director) {
-        try{
-            entityManager.getTransaction().begin();
             entityManager.persist(director);
-            entityManager.getTransaction().commit();
             return true;
-        }
-        catch (Exception e){
-            System.err.println("SOMETHING GO WRONG");
-            return false;
-        }
-        finally {
-            entityManager.close();
-        }
-
-
     }
 
+    @Transactional
     public boolean remove(int id) {
-        try{
-            entityManager.getTransaction().begin();
             entityManager.createQuery("delete from Director WHERE id=" + id).executeUpdate();
-            entityManager.getTransaction().commit();
             return true;
-        }
-        catch (Exception e){
-            System.err.println("SOMETHING GO WRONG");
-            return false;
-        }
-        finally {
-            entityManager.close();
-        }
     }
 
     public Director get(int id) {
-        try{
-            entityManager.getTransaction().begin();
-            Director director = (Director) entityManager.createQuery
-                    ("FROM Director WHERE id=" + id).getSingleResult();
-            entityManager.getTransaction().commit();
-            return director;
-        }
-        catch (Exception e){
-            System.err.println("SOMETHING GO WRONG");
-            return null;
-        }
-        finally {
-            entityManager.close();
-        }
+            return entityManager.find(Director.class, id);
     }
 
     public List<Director> getAll() {
-        try{
             return entityManager.createQuery("FROM Director", Director.class).getResultList();
-        }
-        catch (Exception e){
-            System.err.println("SOMETHING GO WRONG");
-            return  null;
-        }
-        finally {
-            entityManager.close();
-        }
     }
 
+    @Transactional
     public boolean update(Director director) {
-        try{
-           entityManager.getTransaction().begin();
            entityManager.merge(director);
-           entityManager.getTransaction().commit();
            return true;
-        }
-        catch (Exception e){
-            System.err.println("SOMETHING GO WRONG");
-            return  false;
-        }
-        finally {
-            entityManager.close();
-        }
     }
 }

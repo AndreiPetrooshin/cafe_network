@@ -1,6 +1,7 @@
 package service;
 
 import model.Cafe;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

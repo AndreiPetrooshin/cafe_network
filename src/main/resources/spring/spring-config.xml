@@ -7,6 +7,6 @@
         <context:annotation-config/>
         <context:component-scan base-package="repository.impl" />
         <context:component-scan base-package="service.impl"/>
-        <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
 
 </beans>
