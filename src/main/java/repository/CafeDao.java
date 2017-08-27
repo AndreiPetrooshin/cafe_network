@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface  CafeDAO {
 
-    Cafe getCafe(int id);
+    Cafe get(int id);
 
     List<Cafe> getAll();
 

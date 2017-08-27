@@ -1,21 +1,16 @@
-package repository;
-
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by draqo on 30.07.2017.
- */
-public class TestHibernateMain {
+import java.util.Arrays;
 
+/**
+ * Created by draqo on 27.08.2017.
+ */
+public class Main    {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/spring-config.xml",
                 "classpath:spring/spring-db.xml");
-       CafeDAO cafeDAO= context.getBean("cafeDAOImpl", CafeDAO.class);
-        System.out.println(cafeDAO.getAll());
-
-
+        System.out.println(Arrays.toString(context.getBeanDefinitionNames()));
     }
 }

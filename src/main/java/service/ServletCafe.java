@@ -3,6 +3,8 @@ package service;
 
 import model.Cafe;
 import model.Drink;
+import org.springframework.beans.factory.annotation.Autowired;
+import repository.impl.DrinkDAOImpl;
 import service.impl.CafeServiceImpl;
 import service.impl.DirectorServiceImpl;
 import service.impl.DrinkServiceImpl;
@@ -24,17 +26,16 @@ import java.util.List;
 @WebServlet("/servlet")
 public class ServletCafe extends HttpServlet {
 
+    @Autowired
     private DrinkService drinkService;
+
+    @Autowired
     private DirectorService directorService;
+
+    @Autowired
     private CafeService cafeService;
 
 
-    @Override
-    public void init() throws ServletException {
-        drinkService = new DrinkServiceImpl();
-        directorService = new DirectorServiceImpl();
-        cafeService = new CafeServiceImpl();
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,10 +47,11 @@ public class ServletCafe extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        getComponent(req, resp);
+        System.out.println(drinkService);
+        chooseComponent(req, resp);
     }
 
-    private void getComponent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void chooseComponent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String value = req.getParameter("value");
         switch (value) {
             case "cafeList":

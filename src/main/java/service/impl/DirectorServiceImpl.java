@@ -1,8 +1,9 @@
 package service.impl;
 
 import model.Director;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.DirectorDAO;
-import repository.impl.DirectorDAOImpl;
 import service.DirectorService;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
 /**
  * Created by draqo on 15.08.2017.
  */
+@Service
 public class DirectorServiceImpl implements DirectorService {
 
-    private static DirectorDAO dao = new DirectorDAOImpl();
+    @Autowired
+    private DirectorDAO dao;
 
     @Override
     public Director get(int id) {
@@ -31,7 +34,7 @@ public class DirectorServiceImpl implements DirectorService {
 
     @Override
     public boolean add(Director director) {
-        return dao.addDirectror(director);
+        return dao.addDirector(director);
     }
 
     @Override

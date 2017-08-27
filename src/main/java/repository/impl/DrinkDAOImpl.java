@@ -2,22 +2,27 @@ package repository.impl;
 
 
 import model.Drink;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import repository.DrinkDAO;
-import repository.util.EntityUtil;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Repository
+@Transactional(readOnly = true)
 public class DrinkDAOImpl implements DrinkDAO {
 
 
+    private EntityManager entityManager;
 
+    @PersistenceContext(unitName = "persUnit")
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
-    private static EntityManagerFactory managerFactory = EntityUtil.getInstance();
-
-
-    public Drink getDrink(int id) {
-        EntityManager entityManager = getEntityManager();
+    public Drink get(int id) {
         try{
            return entityManager.find(Drink.class, id);
         }
@@ -32,23 +37,10 @@ public class DrinkDAOImpl implements DrinkDAO {
     }
 
     public List<Drink> getAll() {
-        EntityManager entityManager = getEntityManager();
-        try{
             return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.err.println("SOMETHING GO WRONG AT GET ALL METHOD");
-            return null;
-        }
-        finally {
-            entityManager.close();
-        }
-
     }
 
     public boolean remove(int id) {
-        EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
             entityManager.createQuery("delete FROM Drink WHERE id=" + id).executeUpdate();
@@ -67,7 +59,6 @@ public class DrinkDAOImpl implements DrinkDAO {
     }
 
     public boolean update(Drink drink) {
-        EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
             entityManager.merge(drink);
@@ -86,7 +77,6 @@ public class DrinkDAOImpl implements DrinkDAO {
     }
 
     public boolean addDrink(Drink drink) {
-        EntityManager entityManager = getEntityManager();
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(drink);
@@ -103,9 +93,4 @@ public class DrinkDAOImpl implements DrinkDAO {
         }
 
     }
-
-    public EntityManager getEntityManager(){
-        return managerFactory.createEntityManager();
-    }
-
 }

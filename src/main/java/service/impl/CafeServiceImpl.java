@@ -1,8 +1,9 @@
 package service.impl;
 
 import model.Cafe;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.CafeDAO;
-import repository.impl.CafeDAOImpl;
 import service.CafeService;
 
 import java.util.List;
@@ -10,13 +11,15 @@ import java.util.List;
 /**
  * Created by draqo on 15.08.2017.
  */
+@Service
 public class CafeServiceImpl implements CafeService {
 
-    private static CafeDAO dao = new CafeDAOImpl();
+    @Autowired
+    private CafeDAO dao;
 
     @Override
     public Cafe get(int id) {
-        return dao.getCafe(id);
+        return dao.get(id);
     }
 
     @Override

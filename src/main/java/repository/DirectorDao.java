@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface DirectorDAO {
 
-    boolean addDirectror(Director director);
+    boolean addDirector(Director director);
 
     boolean remove(int id);
 

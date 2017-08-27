@@ -9,6 +9,12 @@
     <groupId>cafe_network</groupId>
     <artifactId>cafe_network</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring.version>4.3.8.RELEASE</spring.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -23,6 +29,8 @@
     </build>
 
 
+
+        <!--Database Connector -->
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -30,6 +38,7 @@
             <version>5.1.24</version>
         </dependency>
 
+        <!--Hibernate dependencies-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -42,6 +51,7 @@
             <version>5.2.10.Final</version>
         </dependency>
 
+        <!--Servlet Api-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -54,7 +64,19 @@
             <version>1.2</version>
         </dependency>
 
+        <!--Spring dependencies-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
 
 

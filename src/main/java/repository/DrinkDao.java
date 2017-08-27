@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface DrinkDAO {
 
-    Drink getDrink(int id);
+    Drink get(int id);
 
     List<Drink> getAll();
 

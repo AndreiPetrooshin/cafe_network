@@ -1,28 +1,32 @@
 package service.impl;
 
 import model.Drink;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.DrinkDAO;
-import repository.impl.DrinkDAOImpl;
 import service.DrinkService;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by draqo on 15.08.2017.
  */
+@Service
 public class DrinkServiceImpl implements DrinkService {
 
-    private static DrinkDAO dao =  new DrinkDAOImpl();
+    @Autowired
+    private DrinkDAO dao;
+
 
     @Override
     public Drink get(int id) {
-        return dao.getDrink(id);
+        return dao.get(id);
     }
 
     @Override
     public List<Drink> getAll() {
+        System.out.println(dao);
         return dao.getAll();
     }
 

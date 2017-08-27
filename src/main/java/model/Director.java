@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Entity
 public class Director {
     private int id;
