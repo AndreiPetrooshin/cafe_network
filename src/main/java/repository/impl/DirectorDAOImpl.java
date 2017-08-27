@@ -37,6 +37,7 @@ public class DirectorDAOImpl implements DirectorDAO {
             return entityManager.find(Director.class, id);
     }
 
+
     public List<Director> getAll() {
             return entityManager.createQuery("FROM Director", Director.class).getResultList();
     }
