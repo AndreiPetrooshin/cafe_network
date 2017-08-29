@@ -1,4 +1,4 @@
-package model;
+package com.andreipetrooshin.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +13,14 @@ public class Director {
     private String email;
     private String phoneNumber;
     private List<Cafe> cafeList = new ArrayList<Cafe>();
+
+    public Director(int id,String firstName, String lastName, String email, String phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Director(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;

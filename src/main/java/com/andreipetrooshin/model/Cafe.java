@@ -1,4 +1,4 @@
-package model;
+package com.andreipetrooshin.model;
 
 
 
@@ -15,6 +15,14 @@ public class Cafe {
     private List<Drink> drinkList = new ArrayList<Drink>();
     private Double rating;
 
+
+    public Cafe(int id,String address, String name, Director director, Double rating) {
+        this.id = id;
+        this.address = address;
+        this.name = name;
+        this.director = director;
+        this.rating = rating;
+    }
 
     public Cafe(String address, String name, Director director, Double rating) {
         this.address = address;

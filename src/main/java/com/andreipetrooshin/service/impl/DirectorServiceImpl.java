@@ -1,10 +1,10 @@
-package service.impl;
+package com.andreipetrooshin.service.impl;
 
-import model.Director;
+import com.andreipetrooshin.model.Director;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.DirectorDAO;
-import service.DirectorService;
+import com.andreipetrooshin.repository.DirectorDAO;
+import com.andreipetrooshin.service.DirectorService;
 
 import java.util.List;
 

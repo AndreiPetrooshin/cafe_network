@@ -1,4 +1,4 @@
-package model;
+package com.andreipetrooshin.model;
 
 import javax.persistence.*;
 
@@ -10,6 +10,14 @@ public class Drink {
     private Double price;
     private Integer capacity;
     private Cafe cafe;
+
+    public Drink(int id,String name, Double price, Integer capacity, Cafe cafe) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.capacity = capacity;
+        this.cafe = cafe;
+    }
 
     public Drink(String name, Double price, Integer capacity, Cafe cafe) {
         this.name = name;

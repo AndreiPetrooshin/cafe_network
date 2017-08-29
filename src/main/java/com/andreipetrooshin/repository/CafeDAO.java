@@ -1,8 +1,8 @@
-package repository;
+package com.andreipetrooshin.repository;
 
 
 
-import model.Cafe;
+import com.andreipetrooshin.model.Cafe;
 
 import java.util.List;
 

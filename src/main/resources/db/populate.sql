@@ -8,10 +8,10 @@ INSERT INTO director (first_name, last_name, email, phone_number) VALUES
   ('Evgenii', 'Kovalev', 'kovalev@mail.ru', '+375297844687');
 
 INSERT INTO cafe (address, name, dir_id, rating)  VALUES
-  ('Zhodino, ul.Lenina 12, d.12', 'Coffee_Saund', 2, 5),
+  ('Zhodino, ul.Lenina 12, d.12', 'Coffee_Saund', 2, 5.0),
   ('Minsk, pr. Nezavisimosti 11', 'Coffee_Like', 1, 4.6),
   ('Borisov, ul. Molodezhnaia 11', 'GoodCoffee', 3, 4.7),
-  ('Minsk, pr. Nezavisimosti 4', 'GetCoffee', 1, 5);
+  ('Minsk, pr. Nezavisimosti 4', 'GetCoffee', 1, 5.0);
 
 INSERT INTO drink (name, price, capacity, cafe_id) VALUES
   ('kapuchino', 2.50, 250, 2),

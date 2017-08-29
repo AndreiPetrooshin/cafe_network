@@ -1,9 +1,9 @@
-package repository.impl;
+package com.andreipetrooshin.repository.impl;
 
-import model.Cafe;
+import com.andreipetrooshin.model.Cafe;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import repository.CafeDAO;
+import com.andreipetrooshin.repository.CafeDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

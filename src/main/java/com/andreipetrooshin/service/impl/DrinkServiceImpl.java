@@ -1,10 +1,10 @@
-package service.impl;
+package com.andreipetrooshin.service.impl;
 
-import model.Drink;
+import com.andreipetrooshin.model.Drink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.DrinkDAO;
-import service.DrinkService;
+import com.andreipetrooshin.repository.DrinkDAO;
+import com.andreipetrooshin.service.DrinkService;
 
 import java.util.Comparator;
 import java.util.List;
