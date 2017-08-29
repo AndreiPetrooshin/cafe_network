@@ -1,10 +1,10 @@
-package service.impl;
+package com.andreipetrooshin.service.impl;
 
-import model.Cafe;
+import com.andreipetrooshin.model.Cafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.CafeDAO;
-import service.CafeService;
+import com.andreipetrooshin.repository.CafeDAO;
+import com.andreipetrooshin.service.CafeService;
 
 import java.util.List;
 

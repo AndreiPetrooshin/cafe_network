@@ -1,6 +1,6 @@
-package service;
+package com.andreipetrooshin.service;
 
-import model.Drink;
+import com.andreipetrooshin.model.Drink;
 
 import java.util.List;
 

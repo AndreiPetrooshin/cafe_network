@@ -1,8 +1,8 @@
-package repository;
+package com.andreipetrooshin.repository;
 
 
 
-import model.Drink;
+import com.andreipetrooshin.model.Drink;
 
 import java.util.List;
 

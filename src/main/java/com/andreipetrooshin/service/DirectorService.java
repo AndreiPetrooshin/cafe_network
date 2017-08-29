@@ -1,6 +1,6 @@
-package service;
+package com.andreipetrooshin.service;
 
-import model.Director;
+import com.andreipetrooshin.model.Director;
 
 import java.util.List;
 

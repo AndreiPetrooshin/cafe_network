@@ -1,19 +1,15 @@
-package service.servlets;
+package com.andreipetrooshin.service.servlets;
 
 
-import model.Cafe;
-import model.Drink;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import com.andreipetrooshin.model.Cafe;
+import com.andreipetrooshin.model.Drink;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repository.CafeDAO;
-import repository.impl.DrinkDAOImpl;
-import service.CafeService;
-import service.DirectorService;
-import service.DrinkService;
-import service.impl.CafeServiceImpl;
-import service.impl.DirectorServiceImpl;
-import service.impl.DrinkServiceImpl;
+import com.andreipetrooshin.service.CafeService;
+import com.andreipetrooshin.service.DirectorService;
+import com.andreipetrooshin.service.DrinkService;
+import com.andreipetrooshin.service.impl.CafeServiceImpl;
+import com.andreipetrooshin.service.impl.DirectorServiceImpl;
+import com.andreipetrooshin.service.impl.DrinkServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

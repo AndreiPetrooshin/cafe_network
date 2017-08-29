@@ -1,10 +1,10 @@
-package repository.impl;
+package com.andreipetrooshin.repository.impl;
 
 
-import model.Drink;
+import com.andreipetrooshin.model.Drink;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import repository.DrinkDAO;
+import com.andreipetrooshin.repository.DrinkDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

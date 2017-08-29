@@ -1,7 +1,6 @@
-package service;
+package com.andreipetrooshin.service;
 
-import model.Cafe;
-import org.springframework.transaction.annotation.Transactional;
+import com.andreipetrooshin.model.Cafe;
 
 import java.util.List;
 

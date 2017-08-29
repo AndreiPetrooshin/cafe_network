@@ -1,8 +1,8 @@
-package repository;
+package com.andreipetrooshin.repository;
 
 
 
-import model.Director;
+import com.andreipetrooshin.model.Director;
 
 import java.util.List;
 

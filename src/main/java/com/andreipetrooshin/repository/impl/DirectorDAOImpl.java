@@ -1,10 +1,10 @@
-package repository.impl;
+package com.andreipetrooshin.repository.impl;
 
 
-import model.Director;
+import com.andreipetrooshin.model.Director;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import repository.DirectorDAO;
+import com.andreipetrooshin.repository.DirectorDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
