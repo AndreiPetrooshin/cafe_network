@@ -2,6 +2,7 @@ package com.andreipetrooshin.repository.impl;
 
 
 import com.andreipetrooshin.model.Director;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.andreipetrooshin.repository.DirectorDAO;
@@ -38,6 +39,7 @@ public class DirectorDAOImpl implements DirectorDAO {
     }
 
 
+    @Cacheable("directorCache")
     public List<Director> getAll() {
             return entityManager.createQuery("FROM Director", Director.class).getResultList();
     }

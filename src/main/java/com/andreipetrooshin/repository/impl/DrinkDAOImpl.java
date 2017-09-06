@@ -2,6 +2,7 @@ package com.andreipetrooshin.repository.impl;
 
 
 import com.andreipetrooshin.model.Drink;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.andreipetrooshin.repository.DrinkDAO;
@@ -26,8 +27,14 @@ public class DrinkDAOImpl implements DrinkDAO {
            return entityManager.find(Drink.class, id);
     }
 
+    @Cacheable("drinkCache")
     public List<Drink> getAll() {
-            return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
     }
 
     @Transactional

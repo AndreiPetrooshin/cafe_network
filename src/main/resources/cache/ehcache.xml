@@ -1,0 +1,49 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd" updateCheck="true"
+         monitoring="autodetect" dynamicConfig="true">
+
+    <!-- <diskStore path="java.io.tmpdir" /> -->
+    <diskStore path="c:\\cache" />
+    <defaultCache
+        maxElementsInMemory="500"
+        overflowToDisk="true"
+        eternal="false"
+        memoryStoreEvictionPolicy="LFU"/>
+
+    <cache name="cafeCache"
+           maxEntriesLocalHeap="10000"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="300" timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap" />
+    </cache>
+
+    <cache name="drinkCache"
+           maxEntriesLocalHeap="10000"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="300" timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap" />
+    </cache>
+
+    <cache name="directorCache"
+           maxEntriesLocalHeap="10000"
+           maxEntriesLocalDisk="1000"
+           eternal="false"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="300" timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+           transactionalMode="off">
+        <persistence strategy="localTempSwap" />
+    </cache>
+
+
+
+
+</ehcache>

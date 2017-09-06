@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -38,11 +39,12 @@ public class ServletCafe extends HttpServlet {
     public void init() throws ServletException {
         context = new ClassPathXmlApplicationContext
                 ("classpath:spring/spring-config.xml",
-                "classpath:spring/spring-db.xml");
+                "classpath:spring/spring-db.xml", "spring/spring-cache.xml");
         drinkService = context.getBean(DrinkServiceImpl.class);
         directorService = context.getBean(DirectorServiceImpl.class);
         cafeService = context.getBean(CafeServiceImpl.class);
-}
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
