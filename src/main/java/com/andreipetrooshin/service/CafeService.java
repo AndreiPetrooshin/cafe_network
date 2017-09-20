@@ -4,9 +4,7 @@ import com.andreipetrooshin.model.Cafe;
 
 import java.util.List;
 
-/**
- * Created by draqo on 15.08.2017.
- */
+
 public interface CafeService {
 
     Cafe get(int id);

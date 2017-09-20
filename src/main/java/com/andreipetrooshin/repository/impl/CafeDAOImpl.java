@@ -2,6 +2,7 @@ package com.andreipetrooshin.repository.impl;
 
 import com.andreipetrooshin.model.Cafe;
 
+
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +32,6 @@ public class CafeDAOImpl implements CafeDAO {
 
     @Cacheable("cafeCache")
     public List<Cafe> getAll() {
-            slowQuery(5000L);
             return entityManager.createQuery("FROM Cafe", Cafe.class).getResultList();
     }
 
@@ -54,12 +54,5 @@ public class CafeDAOImpl implements CafeDAO {
             return true;
     }
 
-    private void slowQuery(long seconds){
-        try {
-            Thread.sleep(seconds);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-    }
 
 }

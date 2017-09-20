@@ -25,7 +25,9 @@ public class DrinkServiceImpl implements DrinkService {
     }
 
     @Override
-    public List<Drink> getAll() {return dao.getAll();}
+    public List<Drink> getAll() {
+        return dao.getAll();
+    }
 
     @Override
     public boolean remove(int id) {
@@ -42,11 +44,16 @@ public class DrinkServiceImpl implements DrinkService {
         return dao.update(drink);
     }
 
+    @Override
+    public List<Drink> getByCafeId(int id) {
+        return dao.getByCafeId(id);
+    }
+
 
     @Override
-    public List<Drink> sortByPrice(){
+    public List<Drink> sortByPrice() {
         List<Drink> drinks = getAll();
-        drinks.sort((o1, o2) -> o1.getPrice() < o2.getPrice() ? 1 : o1.getPrice() > o2.getPrice()?-1:0);
+        drinks.sort((o1, o2) -> o1.getPrice() < o2.getPrice() ? 1 : o1.getPrice() > o2.getPrice() ? -1 : 0);
         System.out.println(drinks);
         return drinks;
     }

@@ -6,13 +6,12 @@ package com.andreipetrooshin.repository.jpa;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Sql({"/db/initDB.sql", "/db/populate.sql"})
 @ContextConfiguration({
-        "classpath:spring/spring-config.xml",
-        "classpath:spring/spring-db.xml"})
+        "classpath:WEB-INF/spring/dispatcher-servlet.xml",
+        "classpath:WEB-INF/spring/spring-db.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AbstractJpaTest {
 

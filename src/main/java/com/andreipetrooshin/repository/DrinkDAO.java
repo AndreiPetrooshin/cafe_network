@@ -21,6 +21,8 @@ public interface DrinkDAO {
 
     boolean addDrink(Drink drink);
 
+    List<Drink> getByCafeId(int id);
+
 
 
 

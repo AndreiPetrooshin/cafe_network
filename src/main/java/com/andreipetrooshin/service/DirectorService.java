@@ -4,9 +4,8 @@ import com.andreipetrooshin.model.Director;
 
 import java.util.List;
 
-/**
- * Created by draqo on 15.08.2017.
- */
+
+
 public interface DirectorService {
 
     Director get(int id);

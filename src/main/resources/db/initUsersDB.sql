@@ -1,0 +1,31 @@
+-- Table Users
+
+CREATE TABLE Users(
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
+  username VARCHAR(255) NOT NULL ,
+  password VARCHAR(255) NOT NULL
+) ENGINE InnoDB;
+
+CREATE TABLE Roles (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
+  name VARCHAR(100) NOT NULL
+)
+  ENGINE InnoDB;
+
+CREATE TABLE user_roles(
+  user_id INT NOT NULL ,
+  role_id INT NOT NULL ,
+
+  FOREIGN KEY (user_id) REFERENCES Users(id),
+  FOREIGN KEY (role_id) REFERENCES Roles(id),
+
+  UNIQUE (user_id, role_id)
+)
+  ENGINE InnoDB;
+
+
+INSERT INTO  Users VALUES (1, 'andrei', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO  Roles VALUES (1, 'ROLE_USER');
+INSERT INTO  Roles VALUES (2, 'ROLE_ADMIN');
+
+INSERT INTO  user_roles VALUES (1,2);

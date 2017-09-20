@@ -3,7 +3,13 @@ package com.andreipetrooshin.model;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = Drink.GET_BY_CAFE_ID, query = "select d from Drink d where d.cafe.id=:id")
+})
+
 public class Drink {
+
+    public static final String GET_BY_CAFE_ID = "drink.byCafeId";
 
     private int id;
     private String name;

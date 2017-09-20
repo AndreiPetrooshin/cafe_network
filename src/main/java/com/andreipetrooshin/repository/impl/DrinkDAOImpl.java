@@ -18,7 +18,7 @@ public class DrinkDAOImpl implements DrinkDAO {
 
     private EntityManager entityManager;
 
-    @PersistenceContext(unitName = "persUnit")
+    @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -29,11 +29,6 @@ public class DrinkDAOImpl implements DrinkDAO {
 
     @Cacheable("drinkCache")
     public List<Drink> getAll() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return entityManager.createQuery("FROM Drink", Drink.class).getResultList();
     }
 
@@ -53,5 +48,11 @@ public class DrinkDAOImpl implements DrinkDAO {
     public boolean addDrink(Drink drink) {
         entityManager.persist(drink);
         return true;
+    }
+
+    @Override
+    public List<Drink> getByCafeId(int id) {
+        return  entityManager.createNamedQuery(Drink.GET_BY_CAFE_ID, Drink.class)
+                .setParameter("id", id).getResultList();
     }
 }

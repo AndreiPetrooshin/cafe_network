@@ -4,9 +4,8 @@ import com.andreipetrooshin.model.Drink;
 
 import java.util.List;
 
-/**
- * Created by draqo on 15.08.2017.
- */
+
+
 public interface DrinkService {
 
     Drink get(int id);
@@ -18,6 +17,8 @@ public interface DrinkService {
     boolean add(Drink drink);
 
     boolean update(Drink drink);
+
+    List<Drink> getByCafeId(int id);
 
     List<Drink> sortByPrice();
 

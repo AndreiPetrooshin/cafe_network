@@ -24,29 +24,29 @@ public class DirectorDAOImpl implements DirectorDAO {
 
     @Transactional
     public boolean addDirector(Director director) {
-            entityManager.persist(director);
-            return true;
+        entityManager.persist(director);
+        return true;
     }
 
     @Transactional
     public boolean remove(int id) {
-            entityManager.createQuery("delete from Director WHERE id=" + id).executeUpdate();
-            return true;
+        entityManager.createQuery("delete from Director WHERE id=" + id).executeUpdate();
+        return true;
     }
 
     public Director get(int id) {
-            return entityManager.find(Director.class, id);
+        return entityManager.find(Director.class, id);
     }
 
 
     @Cacheable("directorCache")
     public List<Director> getAll() {
-            return entityManager.createQuery("FROM Director", Director.class).getResultList();
+        return entityManager.createQuery("FROM Director", Director.class).getResultList();
     }
 
     @Transactional
     public boolean update(Director director) {
-           entityManager.merge(director);
-           return true;
+        entityManager.merge(director);
+        return true;
     }
 }
